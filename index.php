@@ -59,11 +59,11 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script src="js/moment.min.js"></script>
-        <script src="js/fullcalendar.js"></script>
         <link  href="css/bootstrap.min.css" rel="stylesheet" >
         <link href="css/fullcalendar.css" rel="stylesheet" />
         <link href="css/fullcalendar.print.css" rel="stylesheet" media="print" />
+        <script src="js/moment.min.js"></script>
+        <script src="js/fullcalendar.js"></script>
     </head>
     <body>
 
@@ -95,6 +95,8 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
 
                         <input type="hidden" id="startTime"/>
                         <input type="hidden" id="endTime"/>
+
+
 
                         <div class="control-group">
                             <label class="control-label" for="when">When:</label>
