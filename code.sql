@@ -5,4 +5,3 @@ CREATE TABLE `events` (
 `end` DATETIME NOT NULL,
 `uid` VARCHAR(50) 
 );
-

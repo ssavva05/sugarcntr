@@ -55,16 +55,31 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
 <html lang="en">
     <head>
         <title>calendar</title>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <link  href="css/bootstrap.min.css" rel="stylesheet" >
         <link  href="css/bootstrap.min.css.map" rel="stylesheet" >
         <link href="css/fullcalendar.css" rel="stylesheet" />
-        <link href="css/fullcalendar.print.css" rel="stylesheet" media="print" />
+        <link href="css/fullcalendar.print.css" rel="stylesheet" media="print"/>
         <script src="js/moment.min.js"></script>
         <script src="js/fullcalendar.js"></script>
+
+
+        <style>
+            
+
+            body { 
+                background: url('pic/h.png') no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
+
+
     </head>
     <body>
 
@@ -76,14 +91,11 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <br />
 
         <script>
-
-
             var source = new EventSource('events.php');
             source.addEventListener('message', function (e) {
                 console.log(e.data);
                 document.getElementById("nsse").innerHTML = e.data + '<br>';
             }, false);
-
         </script>
 
         <!-- add calander in this div -->
@@ -99,13 +111,13 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Add Event</h4>
+                        <h4 class="modal-title">Add Sugar Level</h4>
                     </div>
                     <div class="modal-body">
                         <div class="control-group">
-                            <label class="control-label" for="inputPatient">Event:</label>
+                            <label class="control-label" for="inputPatient">Sugar Level:</label>
                             <div class="field desc">
-                                <input class="form-control" id="title" name="title" placeholder="Event" type="text" value="">
+                                <input class="form-control" id="title" name="title" placeholder="Sugar Level Number" type="text" value="">
                             </div>
                         </div>
 
@@ -115,8 +127,8 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
 
 
                         <div class="control-group">
-                            <label class="control-label" for="when">When:</label>
-                            <div class="controls controls-row" id="when" style="margin-top:5px;">
+                            <label class="control-label" for="when" style="margin-top:5px;">When:</label>
+                            <div class="controls controls-row" id="when" style="margin-top:1px;">
                             </div>
                         </div>
 
@@ -149,6 +161,13 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
                 </div>
             </div>
         </div>
-
+        <footer>
+            <div align="center">
+                <h4> </h4>  
+                <h5>&copy; Created by: ssavva05 , <?php echo date("Y"); ?> </h5>
+                <h5>Contact information: <a href="mailto:ssavva05@ucy.ac.cy">
+                        ssavva05@ucy.ac.cy</h5>
+            </div>       
+        </footer> 
     </body>
 </html>
