@@ -60,6 +60,7 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <link  href="css/bootstrap.min.css" rel="stylesheet" >
+        <link  href="css/bootstrap.min.css.map" rel="stylesheet" >
         <link href="css/fullcalendar.css" rel="stylesheet" />
         <link href="css/fullcalendar.print.css" rel="stylesheet" media="print" />
         <script src="js/moment.min.js"></script>
@@ -70,6 +71,21 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <br />
         <h2 align="center"><a href="#">Calendar</a></h2>
         <br />
+
+        <h4 id="nsse" align="center"> Advice of the Day </h4>
+        <br />
+
+        <script>
+
+
+            var source = new EventSource('events.php');
+            source.addEventListener('message', function (e) {
+                console.log(e.data);
+                document.getElementById("nsse").innerHTML = e.data + '<br>';
+            }, false);
+
+        </script>
+
         <!-- add calander in this div -->
         <div class="container">
             <div id="calendar">
