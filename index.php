@@ -59,18 +59,14 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <link  href="css/bootstrap.min.css" rel="stylesheet" >
-        <link  href="css/bootstrap.min.css.map" rel="stylesheet" >
-        <link href="css/fullcalendar.css" rel="stylesheet" />
-        <link href="css/fullcalendar.print.css" rel="stylesheet" media="print"/>
+        <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css.map">
+        <link rel="stylesheet" type="text/css" href="css/fullcalendar.css">
+        <link rel="stylesheet" type="text/css" href="css/fullcalendar.print.css" media="print">
         <script src="js/moment.min.js"></script>
         <script src="js/fullcalendar.js"></script>
-
-
         <style>
-            
-
-            body { 
+            body{ 
                 background: url('pic/h.png') no-repeat center center fixed; 
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
@@ -78,8 +74,6 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
                 background-size: cover;
             }
         </style>
-
-
     </head>
     <body>
 
