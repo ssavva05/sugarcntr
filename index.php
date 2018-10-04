@@ -87,6 +87,7 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
             .nav > li > a:hover{
                 background-color:#eff9f0;
             }
+            
             /*
             .navbar-header{
                 width:100%;
@@ -99,6 +100,7 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
               .navbar li { 
                   rgba(245, 245, 245, 0.4);
               } */
+            
         </style>
     </head>
     <body>
