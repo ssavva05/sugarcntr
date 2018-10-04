@@ -61,8 +61,8 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css.map">
-        <link rel="stylesheet" type="text/css" href="css/fullcalendar2.css">
-        <link rel="stylesheet" type="text/css" href="css/fullcalendar2.print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="css/fullcalendar.css">
+        <link rel="stylesheet" type="text/css" href="css/fullcalendar.print.css" media="print">
         <script src="js/moment.min.js"></script>
         <script src="js/fullcalendar.js"></script>
         <style>
@@ -87,7 +87,13 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
             .nav > li > a:hover{
                 background-color:#eff9f0;
             }
-            
+            .fc{
+                background-color:rgba(14, 128, 40, 0.17);
+            }
+
+            .fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td {
+                border-color:rgba(58, 58, 58, 0.57);
+            }
             /*
             .navbar-header{
                 width:100%;
@@ -100,7 +106,7 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
               .navbar li { 
                   rgba(245, 245, 245, 0.4);
               } */
-            
+
         </style>
     </head>
     <body>
@@ -108,7 +114,7 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <!-- add navbar in this div -->
         <div class ="row">
 
-            <nav class="navbar nav navbar-inverse">
+            <nav class="navbar nav navbar-inverse navbar-fixed-top">
                 <div class="container">
 
                     <a class="navbar-brand"> Sugar Level Mesures</a>
@@ -125,17 +131,22 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
 
                     </div>
 
+                    <br />
+                    <br />
+                    <br />
                     <div class ="row">
-                        <h4 id="nsse" align="center"> Advice of the Day </h4>
-                        <br />
-
-                        <script>
-                            var source = new EventSource('events.php');
-                            source.addEventListener('message', function (e) {
-                                console.log(e.data);
-                                document.getElementById("nsse").innerHTML = e.data + '<br>';
-                            }, false);
-                        </script>
+                        <div class ="container">
+                            <h4 id="nsse" align="center"> Advice of the Day. </h4>
+                            <h5 id="nsse" align="center"> Hypoglycemia: 70 mg/dL or below. </h5>
+                            <h5 id="nsse" align="center"> Hyperglycemia: 180 mg/dL is above normal and above 300 mg/dL is severe. </h5>
+                            <script>
+                                var source = new EventSource('events.php');
+                                source.addEventListener('message', function (e) {
+                                    console.log(e.data);
+                                    document.getElementById("nsse").innerHTML = e.data + '<br>';
+                                }, false);
+                            </script>
+                        </div>
                     </div>
 
                     <div class ="row">

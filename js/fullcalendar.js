@@ -14937,7 +14937,7 @@ ViewRegistry_1.defineView('agenda', {
     'class': AgendaView_1.default,
     defaults: {
         allDaySlot: true,
-        slotDuration: '03:00:00',
+        slotDuration: '00:30:00',
         slotEventOverlap: true // a bad name. confused with overlap/constraint system
     }
 });
