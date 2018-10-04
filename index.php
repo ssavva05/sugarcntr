@@ -78,7 +78,6 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
                 margin-right: 0.7em;
                 float:right;
             }
-
             .navbar-brand{
                 color: #eff9f0;
             }
