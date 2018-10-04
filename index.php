@@ -56,23 +56,24 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
     <head>
         <title>calendar</title>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
-        <link  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" >
-        <link href="css/fullcalendar.css" rel="stylesheet" />
-        <link href="css/fullcalendar.print.css" rel="stylesheet" media="print" />
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script src="js/moment.min.js"></script>
         <script src="js/fullcalendar.js"></script>
+        <link  href="css/bootstrap.min.css" rel="stylesheet" >
+        <link href="css/fullcalendar.css" rel="stylesheet" />
+        <link href="css/fullcalendar.print.css" rel="stylesheet" media="print" />
     </head>
     <body>
 
+        <br />
+        <h2 align="center"><a href="#">Calendar</a></h2>
+        <br />
         <!-- add calander in this div -->
         <div class="container">
-            
-                <div id="calendar">
-                </div>
-           
+            <div id="calendar">
+            </div>
         </div>
 
         <!-- Modal -->
@@ -94,8 +95,6 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
 
                         <input type="hidden" id="startTime"/>
                         <input type="hidden" id="endTime"/>
-
-
 
                         <div class="control-group">
                             <label class="control-label" for="when">When:</label>
