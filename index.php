@@ -121,7 +121,7 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
 
 
                         <div class="control-group">
-                            <label class="control-label" for="when" style="margin-top:5px;">When:</label>
+                            <label class="control-label" for="when" style="margin-top:5px;">Mesure Date and Time:</label>
                             <div class="controls controls-row" id="when" style="margin-top:1px;">
                             </div>
                         </div>

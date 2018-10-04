@@ -10,6 +10,10 @@ $(document).ready(function(){
             selectable: true,
             allDaySlot: false,
             
+            
+            //Make modifications 
+            
+            
             events: "index.php?view=1",
    
             
