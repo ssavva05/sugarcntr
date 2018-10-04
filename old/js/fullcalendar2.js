@@ -13178,6 +13178,10 @@ fcViews.agendaWeek = {
 	type: 'agenda',
 	duration: { weeks: 1 }
 };
+fcViews.agendaMonth = {
+	type: 'agenda',
+	duration: { months: 1 }
+};
 ;;
 
 /*

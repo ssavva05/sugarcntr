@@ -3,9 +3,9 @@ $(document).ready(function(){
             header:{
                 left: 'prev,next today',
                 center: 'title',
-                right: 'agendaWeek,agendaDay'
+                right: 'agenda,agendaWeek,agendaDay'
             },
-            defaultView: 'agendaWeek',
+            defaultView: 'agenda',
             editable: true,
             selectable: true,
             allDaySlot: false,
