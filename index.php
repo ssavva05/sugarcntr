@@ -54,7 +54,7 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
 <!doctype html>
 <html lang="en">
     <head>
-        <title>calendar</title>
+        <title>Sugar Level Mesures</title>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
@@ -73,95 +73,141 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
                 -o-background-size: cover;
                 background-size: cover;
             }
+            .second-button{
+                margin-top: 0.7em;
+                margin-right: 0.7em;
+                float:right;
+            }
+
+            .navbar-brand{
+                color: #eff9f0;
+            }
+            .navbar-inverse .navbar-brand{
+                color: #eff9f0;
+            }
+            .nav > li > a:hover{
+                background-color:#eff9f0;
+            }
+            /*
+            .navbar-header{
+                width:100%;
+            }
+            .navbar {
+                  background-color: rgba(45, 45, 45, 0.4);
+                  background: rgba(45, 45, 45, 0.4);
+                  border-color: rgba(45, 45, 45, 0.4);
+              }
+              .navbar li { 
+                  rgba(245, 245, 245, 0.4);
+              } */
         </style>
     </head>
     <body>
 
-        <br />
-        <h2 align="center"><a href="#">Calendar</a></h2>
-        <br />
+        <!-- add navbar in this div -->
+        <div class ="row">
 
-        <h4 id="nsse" align="center"> Advice of the Day </h4>
-        <br />
+            <nav class="navbar nav navbar-inverse">
+                <div class="container">
 
-        <script>
-            var source = new EventSource('events.php');
-            source.addEventListener('message', function (e) {
-                console.log(e.data);
-                document.getElementById("nsse").innerHTML = e.data + '<br>';
-            }, false);
-        </script>
+                    <a class="navbar-brand"> Sugar Level Mesures</a>
 
-        <!-- add calander in this div -->
-        <div class="container">
-            <div id="calendar">
-            </div>
-        </div>
+                    <ul class="second-button">
+                        <form>
+                            <!--<form class="navbar-form">-->
+                            <!--<button class="btn btn-info ">Back</button>-->
+                            <button type="button" onclick=" " class="btn btn-danger">Sign Out</button>
+                        </form>
+                    </ul>
+                    <div>
+                        </nav>
 
-        <!-- Modal -->
-        <div id="createEventModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Add Sugar Level</h4>
                     </div>
-                    <div class="modal-body">
-                        <div class="control-group">
-                            <label class="control-label" for="inputPatient">Sugar Level:</label>
-                            <div class="field desc">
-                                <input class="form-control" id="title" name="title" placeholder="Sugar Level Number" type="text" value="">
+
+                    <div class ="row">
+                        <h4 id="nsse" align="center"> Advice of the Day </h4>
+                        <br />
+
+                        <script>
+                            var source = new EventSource('events.php');
+                            source.addEventListener('message', function (e) {
+                                console.log(e.data);
+                                document.getElementById("nsse").innerHTML = e.data + '<br>';
+                            }, false);
+                        </script>
+                    </div>
+
+                    <div class ="row">
+                        <!-- add calander in this div -->
+                        <div class="container">
+                            <div id="calendar">
                             </div>
                         </div>
 
-                        <input type="hidden" id="startTime"/>
-                        <input type="hidden" id="endTime"/>
+                        <!-- Modal -->
+                        <div id="createEventModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Add Sugar Level</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputPatient">Sugar Level:</label>
+                                            <div class="field desc">
+                                                <input class="form-control" id="title" name="title" placeholder="Sugar Level Number" type="text" value="">
+                                            </div>
+                                        </div>
+
+                                        <input type="hidden" id="startTime"/>
+                                        <input type="hidden" id="endTime"/>
 
 
+                                        <div class="control-group">
+                                            <label class="control-label" for="when" style="margin-top:5px;">Mesure Date and Time:</label>
+                                            <div class="controls controls-row" id="when" style="margin-top:1px;">
+                                            </div>
+                                        </div>
 
-                        <div class="control-group">
-                            <label class="control-label" for="when" style="margin-top:5px;">Mesure Date and Time:</label>
-                            <div class="controls controls-row" id="when" style="margin-top:1px;">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                                        <button type="submit" class="btn btn-primary" id="submitButton">Save</button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
+                        <div id="calendarModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Event Details</h4>
+                                    </div>
+                                    <div id="modalBody" class="modal-body">
+                                        <h4 id="modalTitle" class="modal-title"></h4>
+                                        <div id="modalWhen" style="margin-top:5px;"></div>
+                                    </div>
+                                    <input type="hidden" id="eventID"/>
+                                    <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                                        <button type="submit" class="btn btn-danger" id="deleteButton">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                        <button type="submit" class="btn btn-primary" id="submitButton">Save</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="calendarModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Event Details</h4>
-                    </div>
-                    <div id="modalBody" class="modal-body">
-                        <h4 id="modalTitle" class="modal-title"></h4>
-                        <div id="modalWhen" style="margin-top:5px;"></div>
-                    </div>
-                    <input type="hidden" id="eventID"/>
-                    <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                        <button type="submit" class="btn btn-danger" id="deleteButton">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer>
-            <div align="center">
-                <h4> </h4>  
-                <h5>&copy; Created by: ssavva05 , <?php echo date("Y"); ?> </h5>
-                <h5>Contact information: <a href="mailto:ssavva05@ucy.ac.cy">
-                        ssavva05@ucy.ac.cy</h5>
-            </div>       
-        </footer> 
-    </body>
-</html>
+                    <footer>
+                        <div align="center">
+                            <h4> </h4>  
+                            <h5>&copy; Created by: ssavva05 , <?php echo date("Y"); ?> , 
+                                Contact information: <a href="mailto:ssavva05@ucy.ac.cy">
+                                    ssavva05@ucy.ac.cy</h5>
+                        </div>       
+                    </footer> 
+                    </body>
+                    </html>
