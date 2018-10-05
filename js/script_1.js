@@ -1,14 +1,14 @@
 function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
-$(document).ready(function () {
-    var calendar = $('#calendar').fullCalendar({
+var createFC = function () {
+    $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
             center: 'title',
@@ -20,42 +20,85 @@ $(document).ready(function () {
         allDaySlot: false,
         displayEventTime: false,
         slotDuration: '02:00:00',
-        contentHeight: 'auto',
-        
+        contentHeight: 'auto'
+
+
+    });
+};
+//Adds a css style sheet
+addGlobalStyle = function (css) {
+    var head, style;
+    head = document.getElementsByTagName('head')[0];
+    if (!head) {
+        return;
+    }
+    style = document.createElement('style');
+    style.type = 'text/css';
+    style.innerHTML = css;
+    head.appendChild(style);
+};
+
+$(document).ready(function () {
+    createFC();
+
+    var bottomDifference = $('#container')[0].getBoundingClientRect().bottom - $('.fc-slats')[0].getBoundingClientRect().bottom;
+    var currentHeight = $(".fc-slats > table").css("height");
+    var newHeight = parseInt(currentHeight) + bottomDifference;
+//$( ".fc-slats > table" ).css( "height", newHeight );
+    addGlobalStyle(".fc-slats > table {height:" + newHeight + "px}");
+
+//Destroy the fullcalendar
+    $('#calendar').fullCalendar('destroy');
+    $('#calendar').detach();
+    $('#calendar').die();
+    $('#calendar').empty();
+    var calendar = $('#calendar').fullCalendar({
+        /*
+         header: {
+         left: 'prev,next today',
+         center: 'title',
+         right: 'agendaDay,agendaWeek,month'
+         },
+         defaultView: 'agendaDay',
+         editable: true,
+         selectable: true,
+         allDaySlot: false,
+         displayEventTime: false,
+         slotDuration: '02:00:00',
+         contentHeight: 'auto',
+         */
         events: "index.php?view=1",
-        
+
         eventAfterRender: function (event, element, view) {
             /*var dataHoje = new Date();
-            //element.css('background-color', getRandomColor().toString());
-            if (event.start < dataHoje && event.end > dataHoje) {
-                //event.color = "#FFB347"; //Em andamento
-                element.css('background-color', '#FFB347');
-            } else if (event.start < dataHoje && event.end < dataHoje) {
-                //event.color = "#77DD77"; //Concluído OK
-                element.css('background-color', '#77DD77');
-            } else if (event.start > dataHoje && event.end > dataHoje) {
-                //event.color = "#AEC6CF"; //Não iniciado
-                element.css('background-color', '#AEC6CF');
-            }*/
-            
-            if (parseInt(event.title) >= 300){
+             //element.css('background-color', getRandomColor().toString());
+             if (event.start < dataHoje && event.end > dataHoje) {
+             //event.color = "#FFB347"; //Em andamento
+             element.css('background-color', '#FFB347');
+             } else if (event.start < dataHoje && event.end < dataHoje) {
+             //event.color = "#77DD77"; //Concluído OK
+             element.css('background-color', '#77DD77');
+             } else if (event.start > dataHoje && event.end > dataHoje) {
+             //event.color = "#AEC6CF"; //Não iniciado
+             element.css('background-color', '#AEC6CF');
+             }*/
+
+            if (parseInt(event.title) >= 300) {
                 element.css('background-color', '#F20C10');
-            } else if (parseInt(event.title) >= 180){
+            } else if (parseInt(event.title) >= 180) {
                 element.css('background-color', '#F27F0C');
-            } else if (parseInt(event.title) <= 70){
+            } else if (parseInt(event.title) <= 70) {
                 element.css('background-color', '#F20C10');
-            }
-            else if (parseInt(event.title) <= 79){
+            } else if (parseInt(event.title) <= 79) {
                 element.css('background-color', '#F27F0C');
-            }
-            else{
+            } else {
                 element.css('background-color', '#77DD77');
             }
-            
-          element.css('color','#000000' );
-          element.css('padding-left','0.17em');
-          //element.css('text-align','center');
-          element.css('font-size', '1.47em');
+
+            element.css('color', '#000000');
+            element.css('padding-left', '0.17em');
+            //element.css('text-align','center');
+            element.css('font-size', '1.47em');
         },
 
         eventClick: function (event, jsEvent, view) {
