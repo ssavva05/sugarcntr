@@ -63,8 +63,9 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css.map">
         <link rel="stylesheet" type="text/css" href="css/fullcalendar.css">
         <link rel="stylesheet" type="text/css" href="css/fullcalendar.print.css" media="print">
-        <script src="js/moment.min.js"></script>
-        <script src="js/fullcalendar.js"></script>
+        <script type="text/javascript" src="js/moment.min.js"></script>
+        <script type="text/javascript" src="js/punch.js"></script>
+        <script type="text/javascript" src="js/fullcalendar.js"></script>
         <style>
             body{ 
                 background: url('pic/h.png') no-repeat center center fixed; 
