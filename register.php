@@ -18,6 +18,15 @@ if (isset($_COOKIE["type"])) {
         <script type="text/javascript" src="js/punch.js"></script>
         <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css.map">
+        <style>
+            body{ 
+                background: url('pic/b.jpg') no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
 
     </head>
 
