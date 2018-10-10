@@ -2,7 +2,8 @@
 	
 	ob_start();
 	session_start();
-	include_once 'config.php';
+	include_once 'database.php';
+        $tbl_name = 
 
 	// Connect to server and select databse.
 	mysql_connect("$host", "$username", "$password")or die("cannot connect"); 		
@@ -31,12 +32,12 @@
 	}
 	else {
 	
-		
+		echo "true";
 		$sql = "INSERT INTO $tbl_name (`id`, `username`, `password`,`email`) VALUES (NULL,'$myusername', '$mypassword', '$myemail')";
 		mysql_query($sql) or die(mysql_error());
 		$_SESSION['username'] = $myusername;
 		$_SESSION['password'] = $mypassword;
-        echo "true";
+        
    
 }
 

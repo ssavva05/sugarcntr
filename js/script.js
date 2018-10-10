@@ -21,6 +21,9 @@ $(document).ready(function () {
         displayEventTime: false,
         slotDuration: '02:00:00',
         contentHeight: 'auto',
+        longPressDelay: 10,
+        eventLongPressDelay: 20,
+        selectLongPressDelay: 25,
         
         events: "index.php?view=1",
         

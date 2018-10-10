@@ -1,9 +1,44 @@
 <?php
 session_start();
 include("database.php");
+
+
 if (!isset($_SESSION['user'])) {
-    $_SESSION['user'] = session_id();
+    if (isset($_COOKIE["type"])) {
+        //create session
+        $_SESSION['user'] = $_COOKIE["type"];
+        header("location:index.php");
+        
+    }
+    header("location:login.php");
 }
+
+
+
+
+
+
+/*
+  if (!isset($_SESSION['user'])) {
+  //    header("location:login.php");
+  //}
+  $_SESSION['user'] = session_id();
+  }
+ * */
+
+
+/*
+  if (isset($_SESSION['user'])) {
+  //    header("location:login.php");
+  //}
+  $_SESSION['user'] = session_id();
+  }
+ */
+//if(!isset($_COOKIE["type"]))
+//{
+//header("location:login.php");
+//}
+
 $uid = $_SESSION['user'];  // set your user id settings
 $datetime_string = date('c', time());
 
@@ -57,16 +92,16 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <title>Sugar Level Mesures</title>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
         <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/script.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/punch.js"></script>
         <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link  rel="stylesheet" type="text/css" href="css/bootstrap.min.css.map">
         <link rel="stylesheet" type="text/css" href="css/fullcalendar.css">
         <link rel="stylesheet" type="text/css" href="css/fullcalendar.print.css" media="print">
         <script type="text/javascript" src="js/moment.min.js"></script>
-        <script type="text/javascript" src="js/punch.js"></script>
         <script type="text/javascript" src="js/fullcalendar.js"></script>
-        
+        <script type="text/javascript" src="js/script.js"></script>
+
         <style>
             body{ 
                 background: url('pic/h.png') no-repeat center center fixed; 
@@ -125,7 +160,7 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
                         <form>
                             <!--<form class="navbar-form">-->
                             <!--<button class="btn btn-info ">Back</button>-->
-                            <button type="button" onclick=" " class="btn btn-danger">Sign Out</button>
+                            <a type="button" class="btn btn-danger" href="logout.php">Sign Out</a>
                         </form>
                     </ul>
                     <div>

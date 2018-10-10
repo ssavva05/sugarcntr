@@ -22,7 +22,7 @@ if(isset($_POST["login"]))
   SELECT * FROM user_details 
   WHERE user_email = :user_email
   ";
-  $statement = $connect->prepare($query);
+  $statement = $connection->prepare($query);
   $statement->execute(
    array(
     'user_email' => $_POST["user_email"]
@@ -36,6 +36,7 @@ if(isset($_POST["login"]))
    {
     if(password_verify($_POST["user_password"], $row["user_password"]))
     {
+        ////////////HERE//////////////// //2147483647//
      setcookie("type", $row["user_type"], time()+3600);
      header("location:index.php");
     }

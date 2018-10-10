@@ -15,10 +15,7 @@ $(document).ready(function(){
         data: "myusername="+username+"&mypassword="+password,
         success: function(html){    
           if(html=='true') {
-            //set cookie if remeber me is checked
-            
-            
-            window.location="index.php";
+            window.location="login.php";
           }
           else {
             $("#message").html(html);
@@ -26,7 +23,7 @@ $(document).ready(function(){
         },
         beforeSend:function()
         {
-          $("#message").html("<p class='text-center'><img src='images/ajax-loader.gif'></p>")
+          $("#message").html("<p class='text-center'><img src='pic/ajax-loader.gif'></p>")
         }
       });
     }

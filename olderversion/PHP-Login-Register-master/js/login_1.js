@@ -15,9 +15,6 @@ $(document).ready(function(){
         data: "myusername="+username+"&mypassword="+password,
         success: function(html){    
           if(html=='true') {
-            //set cookie if remeber me is checked
-            
-            
             window.location="index.php";
           }
           else {
