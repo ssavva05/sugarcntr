@@ -16,7 +16,7 @@ $tbl_name = "members"; // Table name
 $myusername = $_POST['myusername'];
 $mypassword = $_POST['mypassword'];
 $myemail = $_POST['myemail'];
-
+$st = $_POST['st'];
 // To protect MySQL injection
 $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
@@ -41,12 +41,16 @@ if ($count != 0) {
 } else {
     
     $uid = sha1($myemail.$salt);
-    $sql = "INSERT INTO $tbl_name (`id`, `username`, `password`,`email`,`uid`) VALUES (NULL,'$myusername', '$mypassword', '$myemail', '$uid')";
+    $sql = "INSERT INTO $tbl_name (`id`, `username`, `password`,`email`,`uid`, `st`) VALUES (NULL,'$myusername', '$mypassword', '$myemail', '$uid','$st')";
     mysqli_query($connection, $sql) or die(mysqli_error($connection));
     //$_SESSION['username'] = $myusername;
     //$_SESSION['password'] = $mypassword;
     $_SESSION['user'] = sha1($myemail.$salt);
+    $_SESSION['name'] = $myusername;
+    $_SESSION['st'] = $st;
     setcookie("type", sha1($myemail.$salt), 2147483647);
+    setcookie("name", $myusername, 2147483647);
+    setcookie("st", $st, 2147483647);
     //header("location:index.php");
     echo "true";
 }

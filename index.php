@@ -8,14 +8,26 @@ if (!isset($_SESSION['user'])) {
         //create session
         $_SESSION['user'] = $_COOKIE["type"];
         header("location:index.php");
-        
     }
     header("location:login.php");
 }
 
 
+if (!isset($_SESSION['name'])) {
+    if (isset($_COOKIE["name"])) {
+        $_SESSION['name'] = $_COOKIE["name"];
+    } else {
+        $_SESSION['name'] = ' ';
+    }
+}
 
-
+if (!isset($_SESSION['st'])) {
+    if (isset($_COOKIE["st"])) {
+        $_SESSION['st'] = $_COOKIE["st"];
+    } else {
+        $_SESSION['st'] = ' ';
+    }
+}
 
 
 /*
@@ -154,7 +166,7 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
             <nav class="navbar nav navbar-inverse navbar-fixed-top">
                 <div class="container">
 
-                    <a class="navbar-brand"> Sugar Level Mesures</a>
+                    <a class="navbar-brand">Sugar Level Mesures</a>
 
                     <ul class="second-button">
                         <form>
@@ -174,8 +186,8 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
                     <div class ="row">
                         <div class ="container">
                             <h4 id="nsse" align="center"> Advice of the Day. </h4>
-                            <h5 id="nsse" align="center"> Hypoglycemia: 70 mg/dL or below. </h5>
-                            <h5 id="nsse" align="center"> Hyperglycemia: 180 mg/dL is above normal and above 300 mg/dL is severe. </h5>
+                            <h5 id="nsse" align="center"> Hello <?= $_SESSION['name']; ?>, Welcome Back! Diabides Type : <?= $_SESSION['st']; ?> .</h5>
+                            <h5 id="nsse" align="center"> Hypoglycemia: 70 mg/dL or below. Hyperglycemia: 180 mg/dL is above normal and above 300 mg/dL is severe. </h5>
                             <script>
                                 var source = new EventSource('events.php');
                                 source.addEventListener('message', function (e) {

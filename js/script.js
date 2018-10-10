@@ -1,10 +1,10 @@
 function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 $(document).ready(function () {
@@ -24,41 +24,41 @@ $(document).ready(function () {
         longPressDelay: 10,
         eventLongPressDelay: 20,
         selectLongPressDelay: 25,
-        
+
         events: "index.php?view=1",
-        
+
         eventAfterRender: function (event, element, view) {
             /*var dataHoje = new Date();
-            //element.css('background-color', getRandomColor().toString());
-            if (event.start < dataHoje && event.end > dataHoje) {
-                //event.color = "#FFB347"; //Em andamento
-                element.css('background-color', '#FFB347');
-            } else if (event.start < dataHoje && event.end < dataHoje) {
-                //event.color = "#77DD77"; //Concluído OK
-                element.css('background-color', '#77DD77');
-            } else if (event.start > dataHoje && event.end > dataHoje) {
-                //event.color = "#AEC6CF"; //Não iniciado
-                element.css('background-color', '#AEC6CF');
-            }*/
-            
-            if (parseInt(event.title) >= 300){
+             //element.css('background-color', getRandomColor().toString());
+             if (event.start < dataHoje && event.end > dataHoje) {
+             //event.color = "#FFB347"; //Em andamento
+             element.css('background-color', '#FFB347');
+             } else if (event.start < dataHoje && event.end < dataHoje) {
+             //event.color = "#77DD77"; //Concluído OK
+             element.css('background-color', '#77DD77');
+             } else if (event.start > dataHoje && event.end > dataHoje) {
+             //event.color = "#AEC6CF"; //Não iniciado
+             element.css('background-color', '#AEC6CF');
+             }*/
+
+            if (parseInt(event.title) >= 300) {
                 element.css('background-color', '#F20C10');
-            } else if (parseInt(event.title) >= 180){
+            } else if (parseInt(event.title) >= 180) {
                 element.css('background-color', '#F27F0C');
-            } else if (parseInt(event.title) <= 70){
+            } else if (parseInt(event.title) >= 107) {
+                element.css('background-color', '#40e0d0');
+            } else if (parseInt(event.title) <= 70) {
                 element.css('background-color', '#F20C10');
-            }
-            else if (parseInt(event.title) <= 79){
+            } else if (parseInt(event.title) <= 73) {
                 element.css('background-color', '#F27F0C');
-            }
-            else{
+            } else {
                 element.css('background-color', '#77DD77');
             }
-            
-          element.css('color','#000000' );
-          element.css('padding-left','0.17em');
-          //element.css('text-align','center');
-          element.css('font-size', '1.47em');
+
+            element.css('color', '#000000');
+            element.css('padding-left', '0.17em');
+            //element.css('text-align','center');
+            element.css('font-size', '1.47em');
         },
 
         eventClick: function (event, jsEvent, view) {

@@ -8,6 +8,8 @@ if (isset($_SESSION)) {
     session_destroy();
 }
 setcookie("type", "", time() - 3600);
+setcookie("name", "", time() - 3600);
+setcookie("st", "", time() - 3600);
 header("location:login.php");
 
 //setcookie("type", "", time()-3600);

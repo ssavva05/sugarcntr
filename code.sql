@@ -9,7 +9,8 @@ CREATE TABLE `members` (
 `username` varchar(65) NOT NULL default '',
 `password` varchar(65) NOT NULL default '',
 `email` varchar(65) NOT NULL default '',
-`uid` VARCHAR(50),
+`st` varchar (1) NOT NULL default '',
+`uid` VARCHAR(50) NOT NULL default '',
 PRIMARY KEY (`id`),
 unique key (`uid`)
 

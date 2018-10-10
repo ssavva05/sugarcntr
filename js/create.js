@@ -6,6 +6,7 @@ $(document).ready(function(){
 	var password = $("#mypassword").val();
 	var email = $("#myemail").val();
         var repwd = $("#retypepwd").val();
+        var st = $("input[name='st']:checked").val();
     
 	
     
@@ -17,7 +18,7 @@ $(document).ready(function(){
       $.ajax({
         type: "POST",
         url: "createuser.php",
-        data: "&myusername="+username+"&myemail="+email+"&mypassword="+password,
+        data: "&myusername="+username+"&myemail="+email+"&mypassword="+password+"&st="+st,
         success: function(html){    
           if(html=='true') {
               

@@ -26,6 +26,7 @@ if (isset($_COOKIE["type"])) {
                 -o-background-size: cover;
                 background-size: cover;
             }
+
         </style>
 
     </head>
@@ -45,6 +46,10 @@ if (isset($_COOKIE["type"])) {
                 <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="Confirm Password">
                 <br />
                 <input name="retypepwd" id="retypepwd" type="password" class="form-control" placeholder="Re-Type Password">
+                <br />
+                <h3>Select Your Diabetes Type: </h3>
+                <input type="radio" name="st" value="A" > Type A<br>
+                <input type="radio" name="st" value="B" checked> Type B<br>
                 <br />
                 <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
                 <br />
