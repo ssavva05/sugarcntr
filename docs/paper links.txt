@@ -1,0 +1,49 @@
+https://www.ncbi.nlm.nih.gov/pubmed/30200106
+
+Continuous glucose monitoring system can improve the quality of glucose control 
+and glucose variability compared with point-of-care measurement in critically 
+ill patients: A randomized controlled trial.
+
+https://hackaday.io/project/12778-raspberry-pi-glucometer
+
+http://www.my-signals.com/
+
+
+Closed-Loop Insulin Delivery for Glycemic Control in Noncritical Care.
+https://www.ncbi.nlm.nih.gov/pubmed/29940126
+
+[Sugar content in common prepackaged sugary foods sampling from supermarkets].
+https://www.ncbi.nlm.nih.gov/pubmed/29903252
+
+Continuous glucose monitoring system can improve the quality of glucose control and glucose variability compared with point-of-care measurement in critically ill patients: A randomized controlled trial.
+https://www.ncbi.nlm.nih.gov/pubmed/30200106
+
+http://sites.ieee.org/futuredirections/2015/06/13/the-data-economy-the-future-of-health-care-is-data-based-v/
+
+https://www.computer.org/csdl/mags/co/preprint/06654161.pdf
+
+https://www.computer.org/csdl/proceedings/hicss/2012/4525/00/4525d021.pdf
+
+https://www.computer.org/csdl/proceedings/hicss/2012/4525/00/4525c840.pdf
+
+https://www.computer.org/csdl/proceedings/ms/2016/2625/00/2625a170-abs.html
+
+http://sites.ieee.org/futuredirections/2015/06/13/the-data-economy-the-future-of-health-care-is-data-based-v/
+
+https://www.computer.org/csdl/proceedings/ms/2016/2625/00/2625a170-abs.html
+
+https://www.computer.org/csdl/proceedings/compsac/2018/2666/02/266602a335-abs.html     ---security
+
+IEEE websites place cookies on your device to give you the best user experience. By using our websites, you agree to the placement of these cookies. To learn more, read our Privacy Policy.
+
+https://www.ieee-security.org/TC/SP2013/papers/4977a541.pdf
+http://www.ieee-security.org/TC/W2SP/2010/papers/p13.pdf
+https://www.computer.org/csdl/mags/ic/2000/04/w4036.html
+http://www.ieee-security.org/TC/W2SP/2010/papers/p15.pdf
+https://www.computer.org/csdl/proceedings/icii/2001/7010/04/00983827.pdf
+https://www.computer.org/csdl/proceedings/sp/2016/0824/00/0824a878-abs.html
+https://spectrum.ieee.org/blog/computing/it/riskfactor?offset=770&max=10
+
+https://www.sciencedirect.com/science/article/pii/0169260786901069
+https://www.sciencedirect.com/science/article/pii/0169260786901069  -- program calculate insuline
+https://academic.oup.com/edrv/article-abstract/6/1/45/2548803
