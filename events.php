@@ -49,6 +49,7 @@ function typeS($file) {
 
     //echo $linecount;
     global $linecount, $paas;
+    global $texts;
     //firstrun
     if ($paas == true) {
         $linecount = typeR($file);
@@ -72,7 +73,7 @@ function typeS($file) {
 
         
 
-        if (texts == NULL) {
+        if (empty($texts)) {
             $valuep = "However difficult life may seem, there is always something you can do and succeed at.";
         } else {
             $valuep = $texts[$choose];

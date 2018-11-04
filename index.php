@@ -156,6 +156,25 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
                   rgba(245, 245, 245, 0.4);
               } */
 
+            blockquote {
+                background: #d9f2e6;
+                border-left: 10px solid #215f41;
+                margin: 0.5em 10px;
+                padding: 0.5em 10px;
+                quotes: "\201C""\201D""\2018""\2019";
+            }
+            blockquote:before {
+                color: #556B2F;
+                content: open-quote;
+                font-size: 4em;
+                line-height: 0.1em;
+                margin-right: 0.25em;
+                vertical-align: -0.4em;
+            }
+            blockquote p {
+                display: inline;
+            }
+
         </style>
     </head>
     <body>
@@ -181,9 +200,8 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <br />
         <div class ="row">
             <div class ="container">
-
-                <h5 id="nsse2" align="center"> Hello <?= $_SESSION['name']; ?>, Welcome Back! Diabides Type : <?= $_SESSION['st']; ?> .</h5>
-                <h5 id="nsse3" align="center"> Hypoglycemia: 70 mg/dL or below. Hyperglycemia: 180 mg/dL is above normal and above 300 mg/dL is severe. </h5>
+                <h4 id="nsse2" align="center"> Hello <?= $_SESSION['name']; ?>, Welcome Back! </h4>
+                <h5 id="nsse3" align="center"> <i>Reminder: "Hypoglycemia: 70 mg/dL or below." "Hyperglycemia: 180 mg/dL is above normal and above 300 mg/dL is severe." Diabides Type : <?= $_SESSION['st']; ?>.</i></h5>
                 <script>
                     var source = new EventSource('events.php');
                     source.addEventListener('message', function (e) {
@@ -260,17 +278,17 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         </div>
 
         <div class ="row">
-            <!-- add calander in this div -->
             <div class="container">
-
-                <h5 id="nsse" align="center"> Advice of the Day. </h5>
+                <blockquote>   
+                    <h5 id="nsse" align="center"> Advice of the Day. </h5>
+                </blockquote>
             </div>
         </div>
 
         <footer>
             <div align="center">
                 <h4> </h4>  
-                <h5>&copy; Created by: ssavva05 , <?php echo date("Y"); ?> , 
+                <h5>&copy; Created by: ssavva05, <?php echo date("Y"); ?>, 
                     Contact information: <a href="mailto:ssavva05@ucy.ac.cy">
                         ssavva05@ucy.ac.cy</h5>
             </div>       
