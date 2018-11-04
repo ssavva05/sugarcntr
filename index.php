@@ -164,111 +164,116 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         <div class ="row">
 
             <nav class="navbar nav navbar-inverse navbar-fixed-top">
-                <div class="container">
+                <a class="navbar-brand">Sugar Level Mesures</a>
+                <ul class="second-button">
+                    <form>
+                        <!--<form class="navbar-form">-->
+                        <!--<button class="btn btn-info ">Back</button>-->
+                        <a type="button" class="btn btn-danger" href="logout.php">Sign Out</a>
+                    </form>
+                </ul>
+            </nav>
 
-                    <a class="navbar-brand">Sugar Level Mesures</a>
+        </div>
 
-                    <ul class="second-button">
-                        <form>
-                            <!--<form class="navbar-form">-->
-                            <!--<button class="btn btn-info ">Back</button>-->
-                            <a type="button" class="btn btn-danger" href="logout.php">Sign Out</a>
-                        </form>
-                    </ul>
-                    <div>
-                        </nav>
+        <br />
+        <br />
+        <br />
+        <div class ="row">
+            <div class ="container">
 
-                    </div>
+                <h5 id="nsse2" align="center"> Hello <?= $_SESSION['name']; ?>, Welcome Back! Diabides Type : <?= $_SESSION['st']; ?> .</h5>
+                <h5 id="nsse3" align="center"> Hypoglycemia: 70 mg/dL or below. Hyperglycemia: 180 mg/dL is above normal and above 300 mg/dL is severe. </h5>
+                <script>
+                    var source = new EventSource('events.php');
+                    source.addEventListener('message', function (e) {
+                        console.log(e.data);
+                        document.getElementById("nsse").innerHTML = e.data + '<br>';
+                    }, false);
+                </script>
+            </div>
+        </div>
 
-                    <br />
-                    <br />
-                    <br />
-                    <div class ="row">
-                        <div class ="container">
-                            <h4 id="nsse" align="center"> Advice of the Day. </h4>
-                            <h5 id="nsse2" align="center"> Hello <?= $_SESSION['name']; ?>, Welcome Back! Diabides Type : <?= $_SESSION['st']; ?> .</h5>
-                            <h5 id="nsse3" align="center"> Hypoglycemia: 70 mg/dL or below. Hyperglycemia: 180 mg/dL is above normal and above 300 mg/dL is severe. </h5>
-                            <script>
-                                var source = new EventSource('events.php');
-                                source.addEventListener('message', function (e) {
-                                    console.log(e.data);
-                                    document.getElementById("nsse").innerHTML = e.data + '<br>';
-                                }, false);
-                            </script>
+        <div class ="row">
+            <!-- add calander in this div -->
+            <div class="container">
+                <div id="calendar">
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div id="createEventModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add Sugar Level</h4>
                         </div>
-                    </div>
-
-                    <div class ="row">
-                        <!-- add calander in this div -->
-                        <div class="container">
-                            <div id="calendar">
-                            </div>
-                        </div>
-
-                        <!-- Modal -->
-                        <div id="createEventModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Add Sugar Level</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="control-group">
-                                            <label class="control-label" for="inputPatient">Sugar Level:</label>
-                                            <div class="field desc">
-                                                <input class="form-control" id="title" name="title" placeholder="Sugar Level Number" type="text" value="">
-                                            </div>
-                                        </div>
-
-                                        <input type="hidden" id="startTime"/>
-                                        <input type="hidden" id="endTime"/>
-
-
-                                        <div class="control-group">
-                                            <label class="control-label" for="when" style="margin-top:5px;">Mesure Date and Time:</label>
-                                            <div class="controls controls-row" id="when" style="margin-top:1px;">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                                        <button type="submit" class="btn btn-primary" id="submitButton">Save</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div id="calendarModal" class="modal fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Event Details</h4>
-                                    </div>
-                                    <div id="modalBody" class="modal-body">
-                                        <h4 id="modalTitle" class="modal-title"></h4>
-                                        <div id="modalWhen" style="margin-top:5px;"></div>
-                                    </div>
-                                    <input type="hidden" id="eventID"/>
-                                    <div class="modal-footer">
-                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                                        <button type="submit" class="btn btn-danger" id="deleteButton">Delete</button>
-                                    </div>
+                        <div class="modal-body">
+                            <div class="control-group">
+                                <label class="control-label" for="inputPatient">Sugar Level:</label>
+                                <div class="field desc">
+                                    <input class="form-control" id="title" name="title" placeholder="Sugar Level Number" type="text" value="">
                                 </div>
                             </div>
+
+                            <input type="hidden" id="startTime"/>
+                            <input type="hidden" id="endTime"/>
+
+
+                            <div class="control-group">
+                                <label class="control-label" for="when" style="margin-top:5px;">Mesure Date and Time:</label>
+                                <div class="controls controls-row" id="when" style="margin-top:1px;">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="submitButton">Save</button>
                         </div>
                     </div>
-                    <footer>
-                        <div align="center">
-                            <h4> </h4>  
-                            <h5>&copy; Created by: ssavva05 , <?php echo date("Y"); ?> , 
-                                Contact information: <a href="mailto:ssavva05@ucy.ac.cy">
-                                    ssavva05@ucy.ac.cy</h5>
-                        </div>       
-                    </footer> 
-                    </body>
-                    </html>
+
+                </div>
+            </div>
+
+            <div id="calendarModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Event Details</h4>
+                        </div>
+                        <div id="modalBody" class="modal-body">
+                            <h4 id="modalTitle" class="modal-title"></h4>
+                            <div id="modalWhen" style="margin-top:5px;"></div>
+                        </div>
+                        <input type="hidden" id="eventID"/>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                            <button type="submit" class="btn btn-danger" id="deleteButton">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class ="row">
+            <!-- add calander in this div -->
+            <div class="container">
+
+                <h5 id="nsse" align="center"> Advice of the Day. </h5>
+            </div>
+        </div>
+
+        <footer>
+            <div align="center">
+                <h4> </h4>  
+                <h5>&copy; Created by: ssavva05 , <?php echo date("Y"); ?> , 
+                    Contact information: <a href="mailto:ssavva05@ucy.ac.cy">
+                        ssavva05@ucy.ac.cy</h5>
+            </div>       
+        </footer> 
+    </body>
+</html>
