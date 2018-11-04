@@ -186,8 +186,8 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
                     <div class ="row">
                         <div class ="container">
                             <h4 id="nsse" align="center"> Advice of the Day. </h4>
-                            <h5 id="nsse" align="center"> Hello <?= $_SESSION['name']; ?>, Welcome Back! Diabides Type : <?= $_SESSION['st']; ?> .</h5>
-                            <h5 id="nsse" align="center"> Hypoglycemia: 70 mg/dL or below. Hyperglycemia: 180 mg/dL is above normal and above 300 mg/dL is severe. </h5>
+                            <h5 id="nsse2" align="center"> Hello <?= $_SESSION['name']; ?>, Welcome Back! Diabides Type : <?= $_SESSION['st']; ?> .</h5>
+                            <h5 id="nsse3" align="center"> Hypoglycemia: 70 mg/dL or below. Hyperglycemia: 180 mg/dL is above normal and above 300 mg/dL is severe. </h5>
                             <script>
                                 var source = new EventSource('events.php');
                                 source.addEventListener('message', function (e) {

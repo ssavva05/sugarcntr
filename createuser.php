@@ -37,7 +37,8 @@ $result = mysqli_query($connection, $sql);
 $count = mysqli_num_rows($result);
 
 if ($count != 0) {
-    echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Email ID already exists</div>";
+    //echo "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Email ID already exists</div>";
+    echo "unamecp";
 } else {
     
     $uid = sha1($myemail.$salt);

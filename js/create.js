@@ -26,6 +26,9 @@ $(document).ready(function(){
             window.location="index.php";
             
           }
+          else if (html=='unamecp'){
+            $("#message").html('Email ID already exists.');
+          }
           else {
             $("#message").html('Internal Error');
           }

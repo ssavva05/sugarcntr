@@ -51,9 +51,16 @@ if (isset($_COOKIE["type"])) {
                 <input type="radio" name="st" value="A" > Type A<br>
                 <input type="radio" name="st" value="B" checked> Type B<br>
                 <br />
+              
+                    <label onclick="document.getElementById('Box').checked = false;">
+                        <input type="checkbox" checked = true name="Box" value="box" />
+                        By checking this checkbox you Accept The User Agreement. By using our website, you agree to the placement of these cookies. To learn more, read our Privacy Policy. 
+                    </label>
+               
+                <br />
                 <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
                 <br />
-                <div id="message"></div>
+                <div id="message" style= "color:#FF0000;" ></div>
             </form>
         </div> <!-- /container -->
 
