@@ -39,6 +39,8 @@ if (isset($_COOKIE["type"])) {
                 <h2 class="form-signin-heading">Create Account</h2>
                 <br />
                 <br />
+                <input name="myhid" id="myhid" type="text" class="form-control" placeholder="HID" autofocus>
+                <br />
                 <input name="myusername" id="myusername" type="name" class="form-control" placeholder="Name" autofocus>
                 <br />
                 <input name="myemail" id="myemail" type="email" class="form-control" placeholder="Email ID" autofocus>
@@ -48,8 +50,8 @@ if (isset($_COOKIE["type"])) {
                 <input name="retypepwd" id="retypepwd" type="password" class="form-control" placeholder="Re-Type Password">
                 <br />
                 <h3>Select Your Diabetes Type: </h3>
-                <input type="radio" name="st" value="A" > Type A<br>
-                <input type="radio" name="st" value="B" checked> Type B<br>
+                <input type="radio" name="st" value="A" > Type 1 (A)<br>
+                <input type="radio" name="st" value="B" checked> Type 2 (B)<br>
                 <br />
               
                     <label onclick="document.getElementById('Box').checked = false;">

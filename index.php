@@ -67,17 +67,30 @@ if (isset($_POST['action']) or isset($_GET['view'])) {
         echo json_encode($events);
         exit;
     } elseif ($_POST['action'] == "add") {
+        
+        $icdlh = " ";
+        if ( ((int)$_POST["title"]) <= 70  ){
+            $icdlh = "E16.2";
+        }
+        
+        if ( ((int)$_POST["title"]) >= 180  ){
+            $icdlh = "E16.9";
+        }
+        
+        
         mysqli_query($connection, "INSERT INTO `events` (
                     `title` ,
                     `start` ,
                     `end` ,
-                    `uid` 
+                    `uid` ,
+                    `icdlh`
                     )
                     VALUES (
                     '" . mysqli_real_escape_string($connection, $_POST["title"]) . "',
                     '" . mysqli_real_escape_string($connection, date('Y-m-d H:i:s', strtotime($_POST["start"]))) . "',
                     '" . mysqli_real_escape_string($connection, date('Y-m-d H:i:s', strtotime($_POST["end"]))) . "',
-                    '" . mysqli_real_escape_string($connection, $uid) . "'
+                    '" . mysqli_real_escape_string($connection, $uid) . "',
+                    '" . mysqli_real_escape_string($connection, $icdlh) . "'  
                     )");
         header('Content-Type: application/json');
         echo '{"id":"' . mysqli_insert_id($connection) . '"}';

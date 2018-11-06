@@ -2,6 +2,7 @@ $(document).ready(function(){
     
   $("#submit").click(function(){
 
+        var hid = $("#myhid").val();
     	var username = $("#myusername").val();
 	var password = $("#mypassword").val();
 	var email = $("#myemail").val();
@@ -10,7 +11,7 @@ $(document).ready(function(){
     
 	
     
-    if((email == "") || (password == "") || (username == "") ) {
+    if((email == "") || (password == "") || (username == "") ||  (hid == "")) {
       
       $("#message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>Please enter all the fields</div>");
     }
@@ -18,7 +19,7 @@ $(document).ready(function(){
       $.ajax({
         type: "POST",
         url: "createuser.php",
-        data: "&myusername="+username+"&myemail="+email+"&mypassword="+password+"&st="+st,
+        data: "&myusername="+username+"&myemail="+email+"&mypassword="+password+"&st="+st+"&myhid="+hid,
         success: function(html){    
           if(html=='true') {
               
@@ -29,8 +30,11 @@ $(document).ready(function(){
           else if (html=='unamecp'){
             $("#message").html('Email ID already exists.');
           }
+          else if (html=='unamecphid'){
+            $("#message").html('HID already exists.');
+          }
           else {
-            $("#message").html('Internal Error');
+            $("#message").html(html);
           }
         },
         beforeSend:function()
