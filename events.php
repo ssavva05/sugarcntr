@@ -14,7 +14,7 @@ function sendMsg($msg) {
     echo PHP_EOL;
     ob_flush();
     flush();
-    sleep(20);
+    sleep(15);
 }
 
 $serverTime = time();
